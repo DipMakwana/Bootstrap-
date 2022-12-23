@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goibibo</title>
+    <link rel="icon" href="img/Icons.png">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Bootstrap CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!--Icon-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+</head>
+
+<body style="background-image:url('img/bg.webp'); background-repeat: no-repeat; background-origin: content-box;">
+
+    <div class="row">
+        <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="img/Logo.png" width="80%"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link header" href="Index.html"><i class="bi bi-airplane-fill"></i> Flight</a>
+                        <a class="nav-link header" href="Hotel.html"><i class='bi bi-building'></i> Hotels</a>
+                        <a class="nav-link header" href="Train.html"><i class='bi bi-train-freight-front-fill'></i>
+                            Train</a>
+                        <a class="nav-link header" href="Cabs.html"><i class='bi bi-taxi-front-fill'></i> Cabs</a>
+                        <a class="nav-link header" href="#"><i class='bi bi-bus-front-fill'></i> Bus</a>
+                        <a class="nav-link header" href="#"><i class='bi bi-cash-coin'></i> Forex</a>
+                        <abbr title="Access your bookings, easy cancellation, date change and much more"><img
+                                src="img/MGBooking.png " class="rounded-pill" style="margin-left: 100px;" alt="">
+                        </abbr>
+                        <button class=" btn btn-outline-primary ms-4 open-button" onclick="openForm()"><i
+                                class="bi bi-person-circle"></i> &nbsp Login /
+                            Sign Up</button>
+
+                        <div class="form-popup" id="myForm">
+
+                            <form action="/action_page.php" class="form-container">
+                                <button type="button" class="cancel" onclick="closeForm()"><i
+                                        class="bi bi-x-circle fs-3"></i></button>
+                                <h1>Login/Signup</h1><br>
+
+                                <label for="number"><b>Enter your mobile number</b></label>
+                                <input type="text" placeholder="Enter number" name="number" value="+91" required>
+                                <br><br><br><br>
+
+                                <button type="submit" class="btn">continue</button>
+                            </form>
+                        </div>
+
+                        <script>
+                            function openForm() {
+                                document.getElementById("myForm").style.display = "block";
+                            }
+
+                            function closeForm() {
+                                document.getElementById("myForm").style.display = "none";
+                            }
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+        <div class="title1">
+            <h4>Book Domestic And International Flight Tickets</h4>
+        </div>
+        <div class="container box1">
+            <form action="">
+                <div class="form-check-inline my-3">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="" id="one" name="radio"> One-Way
+                    </label>
+                </div>
+                <div class="form-check-inline my-3">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="" id="round" name="radio"> Round-Trip
+                    </label>
+                </div>
+                <div class="form-check-inline my-3">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" value="" id="multi" name="radio"> Multi-City
+                    </label>
+                </div>
+                <br>
+                <div id="oneclick">
+                    <div class="form-floating my-2 form-check-inline">
+                        <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                        <label for="text">From</label>
+                    </div>
+
+                    <div class="form-floating my-2 form-check-inline">
+                        <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                        <label for="text">To</label>
+                    </div>
+
+                    <div class="form-floating form-check-inline my-2">
+                        <input type="date" class="form-control" placeholder="Enter Date" id="date">
+                        <label for="date">Departure</label>
+                    </div>
+
+                    <div class=" my-2 form-floating form-check-inline">
+                        <input type="date" class="form-control" placeholder="Enter Date" id="date">
+                        <label for="date">Return</label>
+                    </div>
+
+                    <div class="my-2 form-floating form-check-inline">
+                        <input type="text" class="form-control" placeholder="Enter Date" id="date">
+                        <label for="">Travellers And class</label>
+                    </div>
+                    <br>
+
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">Select A <br> Fare Type:</label>
+                        <label class="form-check-label bg-light p-3  ">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Regular
+                        </label>
+                    </div>
+                    <div class="form-check-inline bg-light p-3 my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Armed Forces
+                        </label>
+                    </div>
+                    <div class="form-check-inline bg-light p-3 my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Senior Cityzen
+                        </label>
+                    </div>
+                    <div class="form-check-inline bg-light p-3 my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Students
+                        </label>
+                    </div>
+                    <div class="form-check-inline bg-light p-3 my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Doctors & Nurses
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-2">
+                        <label>Trending Search:</label>
+                        <button class="btn bg-light form-check-inline">Bengaluru <i class="bi bi-arrow-right"></i>
+                            Mumbai</button>
+                        <button class="btn bg-light form-check-inline">Delhi <i class="bi bi-arrow-right"></i>
+                            Goa</button>
+                    </div>
+                    <br>
+                <br>
+                <br>
+                <br>
+                </div>
+                <!-- roundclick -->
+                <div id="roundclick">
+                    <div class="form-floating my-2 form-check-inline">
+                        <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                        <label for="text">From</label>
+                    </div>
+
+                    <div class="form-floating my-2 form-check-inline">
+                        <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                        <label for="text">To</label>
+                    </div>
+
+                    <div class=" my-2 form-floating form-check-inline">
+                        <input type="date" class="form-control" placeholder="Enter Date">
+                        <label for="date">Departure</label>
+                    </div>
+
+                    <div class=" my-2 form-floating form-check-inline">
+                        <input type="date" class="form-control" placeholder="Enter Date">
+                        <label for="date">Return</label>
+                    </div>
+
+                    <div class=" my-2 form-floating form-check-inline">
+                        <input type="text" class="form-control" placeholder="Enter Date">
+                        <label for="">Travellers And class</label>
+                    </div>
+                    <br>
+
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">Select A Fare Type:</label>
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Regular
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Armed Forces
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Senior
+                            Cityzen
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Students
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Doctors &
+                            Nurses
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-3">
+                        <label>Trending Search:</label>
+                        <button class="btn btn-outline-primary form-check-inline">Bengaluru To
+                            Mumbai</button>
+                    </div>
+                    <br>
+                <br>
+                <br>
+                <br>
+                </div>
+                <!-- multiclick -->
+                <div id="multiclick">
+                    <div class="form-floating my-2 form-check-inline">
+                        <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                        <label for="text">From</label>
+                    </div>
+
+                    <div class="form-floating my-2 form-check-inline">
+                        <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                        <label for="text">To</label>
+                    </div>
+
+                    <div class=" my-2 form-floating form-check-inline">
+                        <input type="date" class="form-control" placeholder="Enter Date">
+                        <label for="date">Departure</label>
+                    </div>
+
+                    <div class=" my-2 form-floating form-check-inline">
+                        <input type="text" class="form-control" placeholder="Enter Date">
+                        <label for="">Travellers And class</label>
+                    </div>
+                    <br>
+
+                    <span class="extraflight">
+                        <div class="form-floating my-2 form-check-inline">
+                            <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                            <label for="text">From</label>
+                        </div>
+
+                        <div class="form-floating my-2 form-check-inline">
+                            <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                            <label for="text">To</label>
+                        </div>
+
+                        <div class=" my-2 form-floating form-check-inline">
+                            <input type="date" class="form-control" placeholder="Enter Date">
+                            <label for="date">Departure</label>
+                        </div>
+                    </span>
+                    <span class="btn1">
+                        <div class=" my-2 form-floating form-check-inline">
+                            <button class="btn btn-outline-primary extraclass">Add Another Flight</button>
+                        </div>
+                    </span>
+                    <br>
+                    <span class="extraflight1">
+                        <div class="form-floating my-2 form-check-inline">
+                            <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                            <label for="text">From</label>
+                        </div>
+
+                        <div class="form-floating my-2 form-check-inline">
+                            <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                            <label for="text">To</label>
+                        </div>
+
+                        <div class=" my-2 form-floating form-check-inline">
+                            <input type="date" class="form-control" placeholder="Enter Date">
+                            <label for="date">Departure</label>
+                        </div>
+                    </span>
+                    <span class="btn2">
+                        <div class=" my-2 form-floating form-check-inline">
+                            <button class="btn btn-outline-primary">Add Another Flight</button>
+                        </div>
+                    </span>
+                    <br>
+                    <span class="extraflight2">
+                        <div class="form-floating my-2 form-check-inline">
+                            <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                            <label for="text">From</label>
+                        </div>
+
+                        <div class="form-floating my-2 form-check-inline">
+                            <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                            <label for="text">To</label>
+                        </div>
+
+                        <div class=" my-2 form-floating form-check-inline">
+                            <input type="date" class="form-control" placeholder="Enter Date">
+                            <label for="date">Departure</label>
+                        </div>
+                    </span>
+                    <span class="btn3">
+                        <div class=" my-2 form-floating form-check-inline">
+                            <button class="btn btn-outline-primary extraclass">Add Another Flight</button>
+                        </div>
+                    </span>
+                    <br>
+                    <span class="extraflight3">
+                        <div class="form-floating my-2 form-check-inline">
+                            <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                            <label for="text">From</label>
+                        </div>
+
+                        <div class="form-floating my-2 form-check-inline">
+                            <input type="text" class="form-control" placeholder="Enter City or Airport" name="city">
+                            <label for="text">To</label>
+                        </div>
+
+                        <div class=" my-2 form-floating form-check-inline">
+                            <input type="date" class="form-control" placeholder="Enter Date" id="date6">
+                            <label for="date">Departure</label>
+                        </div>
+                    </span>
+                    <span class="btn4">
+                        <div class=" my-2 form-floating form-check-inline">
+                            <button class="btn btn-outline-primary extraclass">Add Another Flight</button>
+                        </div>
+                    </span>
+                    <br>
+
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">Select A Fare Type:</label>
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio" checked> Regular
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Armed Forces
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Students
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-3">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input" value="" name="radio"> Doctors &
+                            Nurses
+                        </label>
+                    </div>
+                    <div class="form-check-inline my-3">
+                        <label>Trending Search:</label>
+                        <button class="btn btn-outline-primary form-check-inline">Bengaluru To
+                            Mumbai</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="text-center d-grid gap-1 col-6 mx-auto">
+        <button type="button" class="btn fs-3 btn-lg"
+            style="background-color: orangered; color: aliceblue;border-radius: 50px; margin-top: -60px;">Search
+            Flights</button>
+    </div>
+
+    <div class="row img-fluid p-3">
+        <img src="img/1940x180.png">
+    </div>
+
+    <div class="container bg-light rounded-3">
+        <div class="row">
+            <div class="col-12 pt-3 d-flex justify-content-center">
+                <h5>Offers For You</h5>
+            </div>
+
+            <nav class="col-12 navbar navbar-expand-md">
+                <div class="container">
+
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapsibleNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="collapsibleNav">
+
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item mx-3">
+                                <a class="nav-link btn" href="#">All</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link btn" href="#">Bank Offers</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link btn" href="#">Flights</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link btn" href="#">Hotels</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link btn" href="#">Cabs</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link btn" href="#">Bus</a>
+                            </li>
+
+                        </ul>
+                        <a class="nav-link text-primary" href="#">See All Offers > </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Carousel -->
+            <div id="multicar" class="carousel slide col-12" data-bs-ride="carousel">
+
+                <!-- The slideshow/carousel -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+
+
+                        <div class="row">
+
+                            <!-- First Card -->
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="img/card1.webp" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Hotels</h5>
+                                                <p class="card-text">Get Up To 30% OFF On International Hotel Bookings
+                                                </p>
+                                                <p class="card-text"><small class="text-muted">Ends Today</small></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="col-md-12">
+                                            <a href="#"
+                                                class="card-link text-decoration-none d-flex justify-content-center p-2 fs-5">Copy
+                                                & Book:
+                                                CITITRAVEL</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Second Card -->
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="img/card2.jpg" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Hotels</h5>
+                                                <p class="card-text">Get Up To 30% OFF On International Hotel Bookings
+                                                </p>
+                                                <p class="card-text"><small class="text-muted">Ends Today</small></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="col-md-12">
+                                            <a href="#"
+                                                class="card-link text-decoration-none d-flex justify-content-center p-2 fs-5">Copy
+                                                & Book:
+                                                CITITRAVEL</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item">
+                        <div class="row">
+
+                            <!-- Third Card -->
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="img/card3.webp" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Hotels</h5>
+                                                <p class="card-text">Get Up To 30% OFF On International Hotel Bookings
+                                                </p>
+                                                <p class="card-text"><small class="text-muted">Ends Today</small></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="col-md-12">
+                                            <a href="#"
+                                                class="card-link text-decoration-none d-flex justify-content-center p-2 fs-5">Copy
+                                                & Book:
+                                                CITITRAVEL</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fourth Card -->
+                            <div class="col-6">
+                                <div class="card mb-3" style="max-width: 540px;">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="img/card4.jpg" class="img-fluid rounded-start" alt="...">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Hotels</h5>
+                                                <p class="card-text">Get Up To 30% OFF On International Hotel Bookings
+                                                </p>
+                                                <p class="card-text"><small class="text-muted">Ends Today</small></p>
+                                            </div>
+                                        </div>
+                                        <hr>
+                                        <div class="col-md-12">
+                                            <a href="#"
+                                                class="card-link text-decoration-none d-flex justify-content-center p-2 fs-5">Copy
+                                                & Book:
+                                                CITITRAVEL</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#multicar" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#multicar" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5 rounded" style="box-shadow: 0px 0px 20px black;">
+
+        <div class="row rounded-top"
+            style="background-image: linear-gradient(to bottom right,rgb(250, 232, 211), rgb(248, 208, 171), rgb(244, 193, 138));">
+
+            <div class="col-md-6">
+                <img src="img/deal.webp" width="150px" class="py-3">
+            </div>
+            <!-- <div class="col-md-6 ">
+                <img src="img/Clock_image.webp" alt="">
+            </div> -->
+
+        </div>
+
+        <div class="row mt-3">
+
+            <div class="col-12 d-flex justify-content-center">
+
+                <div class="btn-group bg-light w-25 rounded-7" role="group"
+                    aria-label="Basic radio toggle button group">
+                    <input type="radio" class="btn-check " name="btnradio" id="btnradio1" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary border-0 rounded-5" for="btnradio1">Hotels</label>
+
+                    <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+                    <label class="btn btn-outline-primary border-0 rounded-5" for="btnradio2">Flights</label>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div id="multicar2" class="carousel slide col-12" data-bs-ride="carousel">
+
+            <div class="carousel-inner mt-3">
+                <div class="carousel-item active">
+
+
+                    <div class="row">
+
+                        <!-- First Card -->
+                        <div class="col-4">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <img src="img/Carousel1.webp" class="card-img" height="150px" alt="">
+                                    <div class="col-6">
+                                        <h5 class="card-text">Hotel Piccaso</h5>
+                                        <p class="card-text text-muted">Delhi</p>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="card-text m-0 text-decoration-line-through text-muted">Rs.7000</p>
+                                        <p class="card-text m-0 text-danger">Rs.3500</p>
+                                        <p class="card-text text-muted">per night</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- second card -->
+                        <div class="col-4">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <img src="img/Carousel2.webp" class="card-img" height="150px" alt="">
+                                    <div class="col-6">
+                                        <h5 class="card-text">Hotel Piccaso</h5>
+                                        <p class="card-text text-muted">Delhi</p>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="card-text m-0 text-decoration-line-through text-muted">Rs.7000</p>
+                                        <p class="card-text m-0 text-danger">Rs.3500</p>
+                                        <p class="card-text text-muted">per night</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- third card -->
+                        <div class="col-4">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <img src="img/Carousel3.webp" class="card-img" height="150px" alt="">
+                                    <div class="col-6">
+                                        <h5 class="card-text">Hotel Piccaso</h5>
+                                        <p class="card-text text-muted">Delhi</p>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="card-text m-0 text-decoration-line-through text-muted">Rs.7000</p>
+                                        <p class="card-text m-0 text-danger">Rs.3500</p>
+                                        <p class="card-text text-muted">per night</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row">
+                        <!-- First Card -->
+                        <div class="col-4">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <img src="img/Carousel1.webp" class="card-img" height="150px" alt="">
+                                    <div class="col-6">
+                                        <h5 class="card-text">Hotel Piccaso</h5>
+                                        <p class="card-text text-muted">Delhi</p>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="card-text m-0 text-decoration-line-through text-muted">Rs.7000</p>
+                                        <p class="card-text m-0 text-danger">Rs.3500</p>
+                                        <p class="card-text text-muted">per night</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- second card -->
+                        <div class="col-4">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <img src="img/Carousel2.webp" class="card-img" height="150px" alt="">
+                                    <div class="col-6">
+                                        <h5 class="card-text">Hotel Piccaso</h5>
+                                        <p class="card-text text-muted">Delhi</p>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="card-text m-0 text-decoration-line-through text-muted">Rs.7000</p>
+                                        <p class="card-text m-0 text-danger">Rs.3500</p>
+                                        <p class="card-text text-muted">per night</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- third card -->
+                        <div class="col-4">
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <img src="img/Carousel3.webp" class="card-img" height="150px" alt="">
+                                    <div class="col-6">
+                                        <h5 class="card-text">Hotel Piccaso</h5>
+                                        <p class="card-text text-muted">Delhi</p>
+                                    </div>
+                                    <div class="col-6 text-end">
+                                        <p class="card-text m-0 text-decoration-line-through text-muted">Rs.7000</p>
+                                        <p class="card-text m-0 text-danger">Rs.3500</p>
+                                        <p class="card-text text-muted">per night</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Left and right controls/icons -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#multicar2" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#multicar2" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3 Gosafe">
+        <img src="img/Go_Safe.svg" class="img-fluid p-2" alt="">
+        <span style="font-size:medium; font-weight: bolder;" class="px-5">Read The Latest Domestic & International
+            Travel Guidelines Here
+            Before You Travel.Stay Safe, Travel Safe.</span>
+        <a class="link-primary" style="text-decoration:none; font-size:medium; font-weight: bolder;">Read More</a>
+    </div><br>
+
+    <div class="container-fluid mt-3" style="background-color: white; font-size:smaller;">
+        <div class="row">
+            <div class="col-md-3 mt-3">
+                <ul type="none">
+                    <li>
+                        <h6>OUR PRODUCTS</h6>
+                    </li>
+                    <li>Domestic Hotels</li>
+                    <li>International Hotels</li>
+                    <li>Domestic Flights</li>
+                    <li>International Flights</li>
+                    <li>Multi-City Flights</li>
+                    <li>Couple Friendly Hotels</li>
+                    <li>Nearby Getaways</li>
+                    <li>Bus Booking</li>
+                    <li>Cab Booking</li>
+                    <li>Airport Cabs Booking</li>
+                    <li>Outstation Cabs Booking</li>
+                    <li>Train Booking</li>
+                    <li>Go Stays</li>
+                    <li>Trip Money</li>
+                    <li>Goibibo Advertising Solutions</li>
+                </ul>
+            </div>
+            <div class="col-md-3 mt-3">
+                <ul type="none">
+                    <li>
+                        <h6>ABOUT US</h6>
+                    </li>
+                    <li>About Us</li>
+                    <li>Investor Relations</li>
+                    <li>Management</li>
+                    <li>Terms of Services</li>
+                    <li>User Agreement</li>
+                    <li>Privacy</li>
+                    <li>Careers</li>
+                    <li>YouTube Channel</li>
+                    <li>Technology@Goibibo</li>
+                    <li>Customer Support</li>
+                </ul>
+            </div>
+            <div class="col-md-3 mt-3">
+                <ul type="none">
+                    <li>
+                        <h6>TRAVEL ESSENTIALS</h6>
+                    </li>
+                    <li>PNR Status</li>
+                    <li>Offers</li>
+                    <li>Airline Routes</li>
+                    <li>Train Running Status</li>
+                </ul>
+            </div>
+            <div class="col-md-3 mt-3">
+                <ul type="none">
+                    <li>
+                        <h6>MORE LINKS</h6>
+                    </li>
+                    <li>My Account</li>
+                    <li>Wallet</li>
+                    <li>My Bookings</li>
+                </ul>
+            </div>
+            <hr>
+
+            <div class="col-md-12 " style="font-size:14px; margin: 10px 10px; color: darkgray;">
+                <p><b>Popular Flight Sectors</b>
+                    Kolkata to Delhi Flight |
+                    Hyderabad to Delhi Flight |
+                    Chennai to Hyderabad Flight |
+                    Delhi to Guwahati Flight |
+                    Lucknow to Delhi Flight |
+                    Nagpur to Mumbai Flight |
+                    Ranchi to Delhi Flight |
+                    Ahmedabad to Goa Flight |
+                    Mumbai to Chandigarh Flight |
+                    Pune to Kolkata Flight |
+                    Bangalore to Bhubaneshwar Flight |
+                    Bangalore to Guwahati Flight |
+                    Chennai to Goa Flight |
+                    Chennai to Kolkata Flight |
+                    Delhi to Jaipur Flight |
+                    Delhi to Leh Flight |
+                    Hyderabad to Goa Flight |
+                    Bangalore to Ranchi Flight |
+                    Delhi to Bagdogra Flight |
+                    Srinagar to Delhi Flight<br>
+                    <b>Top Routes</b>
+                    Chandigarh to Delhi Flight |
+                    Delhi to Bhopal Flight |
+                    Delhi to Dehradun Flight |
+                    Delhi to Udaipur Flight |
+                    Hyderabad to Tirupati Flight |
+                    Kolkata to Chennai Flight |
+                    Kolkata to Guwahati Flight |
+                    Mumbai to Amritsar Flight |
+                    Mumbai to Dehradun Flight |
+                    Indore to Goa Flight |
+                    Jaipur to Delhi Flight |
+                    Kolkata to Bagdogra Flight |
+                    Patna to Bangalore Flight |
+                    Varanasi to Delhi Flight |
+                    Ahmedabad to Kolkata Flight |
+                    Delhi to Gorakhpur Flight |
+                    Guwahati to Kolkata Flight |
+                    Indore to Bangalore Flight |
+                    Jaipur to Pune Flight |
+                    Mumbai to Raipur Flight<br>
+                    <b>Popular Domestic Routes</b>
+                    Patna to Kolkata Flight |
+                    Ranchi to Bangalore Flight |
+                    Patna to Delhi Flight |
+                    Bangalore to Goa Flight |
+                    Delhi to Ranchi Flight |
+                    Pune to Nagpur Flight |
+                    Chennai to Coimbatore Flight |
+                    Delhi to Srinagar Flight |
+                    Goa to Mumbai Flight |
+                    Hyderabad to Bangalore Flight |
+                    Indore to Delhi Flight |
+                    Kolkata to Mumbai Flight |
+                    Mumbai to Nagpur Flight |
+                    Mumbai to Varanasi Flight |
+                    Pune to Goa Flight |
+                    Bangalore to Chennai Flight |
+                    Bangalore to Jaipur Flight |
+                    Chennai to Bangalore Flight |
+                    Chennai to Madurai Flight |
+                    Delhi to Indore Flight<br>
+                    <b>Top Sectors</b>
+                    Delhi to Jammu Flight |
+                    Delhi to Varanasi Flight |
+                    Hyderabad to Chennai Flight |
+                    Hyderabad to Mumbai Flight |
+                    Jaipur to Mumbai Flight |
+                    Bangalore to Srinagar Flight |
+                    Bhopal to Chennai Flight |
+                    Chandigarh to Mumbai Flight |
+                    Coimbatore to Ahmedabad Flight |
+                    Coimbatore to Bangalore Flight |
+                    Coimbatore to Mumbai Flight |
+                    Delhi to Chandigarh Flight |
+                    Delhi to Coimbatore Flight |
+                    Delhi to Raipur Flight |
+                    Hyderabad to Kolkata Flight |
+                    Hyderabad to Vijaywada Flight |
+                    Lucknow to Ahmedabad Flight |
+                    Madurai to Chennai Flight<br>
+                    <b>Important Routes</b>
+                    Madurai to Hyderabad Flight |
+                    Mumbai to Srinagar Flight |
+                    Pune to Ranchi Flight |
+                    Raipur to Hyderabad Flight |
+                    Raipur to Mumbai Flight |
+                    Bhopal to Hyderabad Flight |
+                    Bhubaneshwar to Chennai Flight |
+                    Chennai to Nagpur Flight |
+                    Chennai to Port Blair Flight |
+                    Cochin to Chennai Flight |
+                    Delhi to Mangalore Flight |
+                    Hyderabad to Nagpur Flight |
+                    Jammu to Delhi Flight |
+                    Kolkata to Aizawl Flight |
+                    Lucknow to Hyderabad Flight |
+                    Udaipur to Delhi Flight |
+                    Agartala to Delhi Flight |
+                    Bangalore to Imphal Flight |
+                    Imphal to Guwahati Flight |
+                    Imphal to Kolkata Flight |
+                    Indore to Raipur Flight |
+                    Kozhikode to Chennai Flight |
+                    Mumbai to Imphal Flight<br>
+                    <b>Trending Domestic Routes</b>
+                    Ahmedabad to Mumbai Flight |
+                    Bagdogra to Kolkata Flight |
+                    Bangalore to Udaipur Flight |
+                    Bhopal to Bangalore Flight |
+                    Bhubaneshwar to Mumbai Flight |
+                    Chandigarh to Chennai Flight |
+                    Chennai to Jaipur Flight |
+                    Delhi to Vadodara Flight |
+                    Goa to Pune Flight |
+                    Hyderabad to Coimbatore Flight |
+                    Hyderabad to Patna Flight |
+                    Jaipur to Bangalore Flight |
+                    Lucknow to Kolkata Flight |
+                    Mangalore to Bangalore Flight |
+                    Mumbai to Coimbatore Flight |
+                    Mumbai to Indore Flight |
+                    Mumbai to Rajkot Flight |
+                    Mumbai to Surat Flight |
+                    Mumbai to Vijaywada Flight |
+                    Pune to Chennai Flight |
+                    Bhubaneshwar to Kolkata Flight |
+                    Delhi to Kozhikode Flight |
+                    Mumbai to Jodhpur Flight |
+                    Ranchi to Mumbai Flight |
+                    Vadodara to Chennai Flight<br>
+                    <b>New Udaan Sectors</b>
+                    Guwahati to Rupsi Flight |
+                    Rupsi to Kolkata Flight |
+                    Guwahati to Agartala Flight |
+                    Agartala to Dibrugarh Flight |
+                    Dibrugarh to Agartala Flight |
+                    Agartala to Guwahati Flight |
+                    Guwahati to Pasighat Flight |
+                    Pasighat to Shillong Flight |
+                    Shillong to Pasighat Flight |
+                    Pasighat to Guwahati Flight
+                </p>
+            </div>
+            <hr>
+            <div class="row" style="color:darkgray ;">
+                <div class="col-md-2">
+                    <h6>FOLLOW US</h6>
+                    <i class="bi bi-facebook" style="font-size:x-large;"></i>
+                    <i class="bi bi-twitter" style="font-size:x-large;"></i>
+                    <i class="bi bi-youtube" style="font-size:x-large;"></i>
+                </div>
+                <div class="col-md-4">
+                    <h6>Book Tickets faster. Download our mobile Apps</h6>
+                    <img src="img/Playstore.png" width="150px" class="img-fluid btn" alt="">
+                    <img src="img/Appstore.png" class="img-fluid btn" width="150px" alt="">
+                </div>
+                <div class="col-md-6">
+                    <img src="img/cards.png" width="500px" class="img-fluid btn" alt="">
+                </div>
+                <hr>
+                <div class="col-md-12 d-flex justify-content-center">
+                    <h6> &#169; 2021 ibibogroup All rights reserved</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <script src="JS/Goibibo.js"></script>
+    <!-- <div class=" container box1">
+            <h3 style="text-align: center;"> Offer for you</h3>
+
+            <nav class="nav">
+                <a class="nav-link active" aria-current="page" href="#">All</a>
+                <a class="nav-link" href="#">Bank Offer</a>
+                <a class="nav-link" href="#">Flight</a>
+                <a class="nav-link" href="#">Hotels</a>
+                <a class="nav-link" href="#">Cabs</a>
+                <a class="nav-link" href="#">Bus</a>
+                <a class="nav-link" href="#">Trains</a>
+                <a class="nav-link justify-content-end" href="#">See Offers ></a>
+              </nav>
+
+        
+        </div> -->
+</body>
+
+</html>
